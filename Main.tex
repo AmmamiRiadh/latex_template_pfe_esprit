@@ -1,0 +1,108 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry}
+
+% Différentes options pour la classe :
+% - taille de la fonte    : 10pt, 11pt, 12pt
+% - recto ou recto-verso    : oneside, twoside
+% - stade de développement    : draft, final
+\usepackage[english]{babel}
+%\usepackage[latin1]{inputenc}    % Pour utiliser les lettres accentuées
+\usepackage{acronym}
+\usepackage[T1]{fontenc}%              gestion des accents (PDF)
+%\usepackage[francais,english]{babel}%          gestion du français
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp}%                 caractères additionnels
+
+\usepackage[pdftex]{graphicx}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{colortbl}
+\usepackage{amsmath}
+\usepackage{ifpdf} % part of the hyperref bundle
+\usepackage{array} 
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{eso-pic}
+
+\usepackage{minitoc} %for mini table of content for each chapter
+\mtcsetdepth{minitoc}{5}
+\dominitoc 
+
+
+\usepackage{tcolorbox}
+\usepackage{titlesec}
+\geometry{margin=1in}
+
+
+%\usepackage{abstract}
+\newcolumntype{c}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{l}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{r}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+
+
+\pagestyle{fancy}
+\fancyhead[L]{\nouppercase\leftmark} %pour afficher le nom du chapitre à gauche
+\fancyhead[C]{}
+\fancyhead[R]{\nouppercase\rightmark} %pour afficher le nom de la section à droite
+
+\usepackage{float}
+
+\fancyfoot[L]{}
+\fancyfoot[C]{}
+\fancyfoot[R]{\textbf{\thepage}}
+
+% Début du document
+\begin{document}
+
+\include{includes/garde_fin}
+\include{includes/form}
+
+
+\newpage
+\pagenumbering{roman}
+\include{includes/Dedicaces}
+\include{includes/Dedicace2}
+\include{includes/Remerciements}
+\tableofcontents     % Table of Contents
+\listoffigures        % Liste des figures
+\listoftables        % Liste des tableaux
+%\include{Acro}
+
+\newpage
+\pagenumbering{arabic}
+\include{includes/Introduction}
+\include{includes/Chapter1}
+
+\include{includes/Chapter2}
+
+\include{includes/Chapter3}
+
+\include{includes/Chapter4}
+
+\include{includes/Conclusion}
+
+\bibliographystyle{alpha}
+\bibliography{libs/Bibliography}
+\addcontentsline{toc}{chapter}{Bibliographie}% ajouter son entrée dans la table
+\include{includes/Acro}
+\pagestyle{empty}
+%\include{Annexe1}
+
+
+\renewcommand{\listtablename}{Tables}
+
+\include{includes/garde_fin2}
+
+% Fin du document
+\end{document}
